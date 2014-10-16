@@ -1,0 +1,14 @@
+<plugin name='elasticsearch' version='0.0.3.4' grailsVersion='2.2.0 &gt; *'>
+  <author>Noam Y. Tenne</author>
+  <authorEmail>noam@10ne.org</authorEmail>
+  <title>ElasticSearch Grails Plugin</title>
+  <description>The revived Elasticsearch plugin for Grails.</description>
+  <documentation>http://noamt.github.io/elasticsearch-grails-plugin</documentation>
+  <type>ElasticsearchGrailsPlugin</type>
+  <resources>
+    <resource>DefaultElasticSearch</resource>
+    <resource>ElasticsearchBootStrap</resource>
+    <resource>org.grails.plugins.elasticsearch.ElasticSearchAdminService</resource>
+    <resource>org.grails.plugins.elasticsearch.ElasticSearchService</resource>
+  </resources>
+</plugin>
