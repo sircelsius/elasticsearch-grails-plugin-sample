@@ -4,30 +4,18 @@ package org.elasticsearch.plugin.sample
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
-import org.elasticsearch.index.query.QueryBuilders
 
 @Transactional(readOnly = true)
 class MusicianController {
 
-    def ElasticSearchService
+    def musicianService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        def musicianList = Musician.search([sort: "_score", order: "desc"],{
-            bool{
-                must{
-                    has_child(
-                        type:"song",
-                        score_mode: "sum",
-                        query: QueryBuilders.matchAllQuery()
-                    )
-                }
-            }
-        })
+        def musicianList = musicianService.searchMusicianOrderBySongCount()
 
-        println("\nMusicians ordered by number of song:\n" + musicianList.sort)
         respond Musician.list(params), model:[musicianInstanceCount: Musician.count()]
     }
 

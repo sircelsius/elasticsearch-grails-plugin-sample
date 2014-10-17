@@ -10,6 +10,7 @@ class Musician {
 
     Location locationBorn
 
+    static hasMany = [song: Song]
     /**
      * All fields are searchable
      * the locationBorn field is a geoPoint (and therefore MUST be a set as a component)
