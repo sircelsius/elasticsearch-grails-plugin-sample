@@ -8,7 +8,15 @@ class Musician {
 
     String age
 
-    static searchable = true
+    Location locationBorn
+
+    /**
+     * All fields are searchable
+     * the locationBorn field is a geoPoint (and therefore MUST be a set as a component)
+     */
+    static searchable = {
+    	locationBorn geoPoint:true, component: true
+    }
 
     static constraints = {
     }

@@ -93,7 +93,7 @@ environments {
         // in development. You need a running instance of elasticsearch 1.2.2
         // on your local machine to make it work
         //elasticsearch.client.mode="transport"
-		    //elasticSearch.client.hosts = [[host: '127.0.0.1', port:9300]]
+		//elasticSearch.client.hosts = [[host: '127.0.0.1', port:9300]]
 
     }
     production {
