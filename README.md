@@ -19,8 +19,9 @@ In order to fully understand the relationship between the different cases implem
 
 The domains in this application try to use as extensiveley the mapping options provided by the plugin. To find a specific mapping, please refer to the following list:
 
-**Domain class TODO**
+#### Domain class TODO
 
+  - [x] Many-to-One mapping (in `Musician` and `Song` domains).
   - [x] `parent` / `child` mapping (in `Musician` and `Song` domains).
   - [x] `geoPoint` mapping (in `Location` domain).
   - [ ] `multi_field` mapping.
@@ -28,6 +29,8 @@ The domains in this application try to use as extensiveley the mapping options p
   - [ ] `excludeFromAll` mapping.
   - [ ] `index` mapping.
   - [ ] `analyzer` mapping.
+  - [ ] 
+
 
 In order to understand the impact of each mapping option, it is strongly recommended that you check the `JSON` results after launching the app using curl. Your command should look like the following:
 
@@ -35,7 +38,20 @@ In order to understand the impact of each mapping option, it is strongly recomme
   curl -XGET localhost:9200/org.elasticsearch.plugin.sample/_mapping?pretty
 ````
 
+### Search
 
+There are many different approaches to searching indexed documents using the plugin, as well as many different `query`, `filter` and `facets` options. The following list shows what is currently implemented and what will be in the future:
+
+#### Search TODO
+
+  - [ ] queries:
+    - [x]  `has_child` (see `MusicianService.searchMusicianOrderBySongCount`)
+    - [ ] `filtered`
+    - [ ] `fuzzy_like_this`
+  - [ ] filters:
+    - [ ] `geoDistance`
+ 
+If you want something implemented, feel free to create an issue on this repository or tweet @MonsieurCelsius and I'll see what I can do..
 
 
 ## License ##
