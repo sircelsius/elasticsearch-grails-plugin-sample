@@ -17,6 +17,13 @@ class Musician {
      */
     static searchable = {
     	locationBorn geoPoint:true, component: true
+    	/**
+         * /!\ This is undocumented /!\
+         * Apparently, when doing a has_child search on a parent document,
+         * the parent must have the child mapped as component:true
+         * see https://github.com/noamt/elasticsearch-grails-plugin/issues/61
+         */
+        song component:true
     }
 
     static constraints = {

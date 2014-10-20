@@ -2,6 +2,8 @@ package org.elasticsearch.plugin.sample
 
 import grails.transaction.Transactional
 import org.elasticsearch.index.query.QueryBuilders
+import org.elasticsearch.search.sort.SortBuilders
+import org.elasticsearch.search.sort.SortOrder
 import org.elasticsearch.plugin.sample.Musician
 
 @Transactional
@@ -27,6 +29,43 @@ class MusicianService {
                         query: QueryBuilders.matchAllQuery()
                     )
                 }
+            }
+        })
+
+        println("\nSearch result (sorted):\n" + musicianSearch.sort)
+        
+        def musicianList = []
+
+        for(musician_id in musicianSearch.sort) {
+        	musicianList.add(Musician.get(musician_id.key))
+        }
+
+        println("\nMusician list (sorted):\n" + musicianList)
+
+        return musicianList
+    }
+
+    def searchMusicianOrderBySongCountMissingLast() {
+    	println("Getting Musicians sorted by Song count (missing last)")
+
+    	// Create a new sortBuilder that sorts by score 
+    	// (calculated in the has_child query)
+    	def sortBuilderScore = SortBuilders.fieldSort("_score").missing("_last")
+        // Create a second sortBuilder that sorts by lastName
+    	def sortBuilderLastName = SortBuilders.fieldSort("lastName").order(SortOrder.ASC)
+
+    	def musicianSearch = Musician.search([sort: [sortBuilderScore, sortBuilderLastName]],{
+            bool{
+            	should{
+	                has_child(
+	                    type:"song",
+	                    score_mode: "sum",
+	                    query: QueryBuilders.matchAllQuery()
+	                )
+            	}
+            	should{
+            		matchAll()
+            	}
             }
         })
 

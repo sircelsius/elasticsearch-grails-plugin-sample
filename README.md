@@ -24,12 +24,11 @@ The domains in this application try to use as extensiveley the mapping options p
   - [x] Many-to-One mapping (in `Musician` and `Song` domains).
   - [x] `parent` / `child` mapping (in `Musician` and `Song` domains).
   - [x] `geoPoint` mapping (in `Location` domain).
-  - [ ] `multi_field` mapping.
+  - [x] `multi_field` mapping (in `Song` domain's `title` field).
   - [ ] `converter` mapping.
   - [ ] `excludeFromAll` mapping.
   - [ ] `index` mapping.
   - [ ] `analyzer` mapping.
-  - [ ] 
 
 
 In order to understand the impact of each mapping option, it is strongly recommended that you check the `JSON` results after launching the app using curl. Your command should look like the following:
@@ -50,8 +49,12 @@ There are many different approaches to searching indexed documents using the plu
     - [ ] `fuzzy_like_this`
   - [ ] filters:
     - [ ] `geoDistance`
+  - [] sorts:
+    - [x] `sortBuilder.fieldSort` (see `MusicianService.searchMusicianOrderBySongCountMissingLast`).
+    - [x] field sort via `Domain.search([sort: 'foo', order: 'bar'], { ... })`  (see `MusicianService.searchMusicianOrderBySongCount`).
+    - [x] multiple fields sorting via multiple `sortBuilders` (see `MusicianService.searchMusicianOrderBySongCountMissingLast`).
  
-If you want something implemented, feel free to create an issue on this repository or tweet @MonsieurCelsius and I'll see what I can do..
+If you want something implemented, feel free to create an issue on this repository or tweet [@MonsieurCelsius](twitter.com/MonsieurCelsius) and I'll see what I can do..
 
 
 ## License ##

@@ -13,11 +13,14 @@ class Location {
 
 	Double lon
 
+	String name
+
 	/**
 	 * The geoPoint domain needs to have the root parameter
 	 * set to false
 	 */
 	static searchable = {
+		only= ["lat", "lon"]
 		root false
 	}
 

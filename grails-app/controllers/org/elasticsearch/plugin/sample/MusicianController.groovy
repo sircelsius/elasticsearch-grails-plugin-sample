@@ -14,7 +14,7 @@ class MusicianController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        def musicianList = musicianService.searchMusicianOrderBySongCount()
+        def musicianList = musicianService.searchMusicianOrderBySongCountMissingLast()
 
         respond Musician.list(params), model:[musicianInstanceCount: Musician.count()]
     }
