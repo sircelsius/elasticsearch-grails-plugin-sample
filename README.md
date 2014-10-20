@@ -49,7 +49,7 @@ There are many different approaches to searching indexed documents using the plu
     - [ ] `fuzzy_like_this`
   - [ ] filters:
     - [ ] `geoDistance`
-  - [] sorts:
+  - [x] sorts:
     - [x] `sortBuilder.fieldSort` (see `MusicianService.searchMusicianOrderBySongCountMissingLast`).
     - [x] field sort via `Domain.search([sort: 'foo', order: 'bar'], { ... })`  (see `MusicianService.searchMusicianOrderBySongCount`).
     - [x] multiple fields sorting via multiple `sortBuilders` (see `MusicianService.searchMusicianOrderBySongCountMissingLast`).
