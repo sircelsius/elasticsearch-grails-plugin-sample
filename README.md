@@ -54,7 +54,7 @@ There are many different approaches to searching indexed documents using the plu
     - [x] field sort via `Domain.search([sort: 'foo', order: 'bar'], { ... })`  (see `MusicianService.searchMusicianOrderBySongCount`).
     - [x] multiple fields sorting via multiple `sortBuilders` (see `MusicianService.searchMusicianOrderBySongCountMissingLast`).
  
-If you want something implemented, feel free to create an issue on this repository or tweet [@MonsieurCelsius](twitter.com/MonsieurCelsius) and I'll see what I can do..
+If you want something implemented, feel free to create an issue on this repository or tweet [@MonsieurCelsius](http://www.twitter.com/MonsieurCelsius) and I'll see what I can do..
 
 
 ## License ##
