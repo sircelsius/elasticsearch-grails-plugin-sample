@@ -9,9 +9,9 @@ class Location {
 	/**
 	 *  The geoPoint must have ONLY two fields indexed: lat and lon
 	 */
-	Double lat
+	Float lat
 
-	Double lon
+	Float lon
 
 	String name
 

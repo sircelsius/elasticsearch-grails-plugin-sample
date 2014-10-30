@@ -10,13 +10,14 @@ class Musician {
 
     Location locationBorn
 
-    static hasMany = [song: Song]
+    static hasMany = [song: Song, locationPlayed: Location]
     /**
      * All fields are searchable
      * the locationBorn field is a geoPoint (and therefore MUST be a set as a component)
      */
     static searchable = {
     	locationBorn geoPoint:true, component: true
+        locationPlayed geoPoint:true, component:true
     	/**
          * /!\ This is undocumented /!\
          * Apparently, when doing a has_child search on a parent document,

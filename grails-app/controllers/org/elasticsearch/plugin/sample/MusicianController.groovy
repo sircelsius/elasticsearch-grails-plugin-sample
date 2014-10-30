@@ -54,6 +54,10 @@ class MusicianController {
         respond musicianInstance
     }
 
+    def searchMusicianOrderBySongCountMissingLast(){
+        return musicianService.searchMusicianOrderBySongCountMissingLast()
+    }
+
     @Transactional
     def update(Musician musicianInstance) {
         if (musicianInstance == null) {

@@ -93,6 +93,18 @@ class BootStrap {
       parent5.addToSong(song8).save()
       parent5.addToSong(song9).save()
 
+      parent1.addToLocationPlayed(location1).save()
+      parent2.addToLocationPlayed(location2).save()
+      parent3.addToLocationPlayed(location3).save()
+      parent4.addToLocationPlayed(location4).save()
+      parent5.addToLocationPlayed(location5).save()
+      parent4.addToLocationPlayed(location6).save()
+      parent3.addToLocationPlayed(location7).save()
+      parent2.addToLocationPlayed(location8).save()
+      parent1.addToLocationPlayed(location9).save()
+      parent2.addToLocationPlayed(location10).save()
+      parent3.addToLocationPlayed(location11).save()
+
       song1.addToLocationPlayed(location1)
       song1.save()
       song1.addToLocationPlayed(location10)
@@ -129,8 +141,6 @@ class BootStrap {
       song9.save()
       song9.addToLocationPlayed(location18)
       song9.save()
-
-
     }
     def destroy = {
     }
