@@ -28,7 +28,7 @@ The domains in this application try to use as extensiveley the mapping options p
   - [ ] `converter` mapping.
   - [ ] `excludeFromAll` mapping.
   - [ ] `index` mapping.
-  - [ ] `analyzer` mapping.
+  - [x] `analyzer` mapping (in `Song` domain's `title` field).
 
 
 In order to understand the impact of each mapping option, it is strongly recommended that you check the `JSON` results after launching the app using curl. Your command should look like the following:
@@ -46,21 +46,37 @@ There are many different approaches to searching indexed documents using the plu
   - [ ] queries:
     - [x]  `has_child` (see `MusicianService.searchMusicianOrderBySongCount`)
     - [ ] `filtered`
-    - [ ] `fuzzy_like_this`
+    - [x] `fuzzy_like_this`: see `SongService.searchSongFuzzyTitle` and `songService.searchSongFuzzyTitleAnalyzer`.
+    - [x] `analyzer`: see `songService.searchSongFuzzyTitleAnalyzer`
   - [ ] filters:
     - [ ] `geoDistance`
   - [x] sorts:
     - [x] `sortBuilder.fieldSort` (see `MusicianService.searchMusicianOrderBySongCountMissingLast`).
     - [x] field sort via `Domain.search([sort: 'foo', order: 'bar'], { ... })`  (see `MusicianService.searchMusicianOrderBySongCount`).
     - [x] multiple fields sorting via multiple `sortBuilders` (see `MusicianService.searchMusicianOrderBySongCountMissingLast`).
+    - [ ] `sortBuilders.geoDistanceSort`
 
 ### Integration tests
+
+** This is not currently working :( **
+~~
+**Important** The integration tests need a filled index to work. If you are using `elasticSearch.client.mode` as `'local'` (which is the default option), make sure you clear the index and run the app before using the `test-app` command from the project root folder:
+
+```` bash
+rm -r data/
+grails run-app
+grails stop-app
+````
+~~
 
 Here are the integration tests that need to be implemented to insure that the sample works correctly:
 
   - [x] Musician Service
     - [x] `searchMusicianOrderBySongCount()`
     - [x] `searchMusicianOrderBySongCountMissingLast`  
+  - [x] Song Service
+    - [x] `searchSongFuzzyTitle`
+    - [x] `searchSongFuzzyTitleAnalyzer`
 
 If you want something implemented, feel free to create an issue on this repository or tweet [@MonsieurCelsius](http://www.twitter.com/MonsieurCelsius) and I'll see what I can do..
 

@@ -20,7 +20,7 @@ class Song {
 		 * do an alphabetical sort
 		 */
 		static searchable = {
-			title multi_field:true, analyzer: "french"
+			title multi_field:true, analyzer: "english"
 			writer parent: true, reference:true
 			locationPlayed geoPoint:true, component:true
 		}
