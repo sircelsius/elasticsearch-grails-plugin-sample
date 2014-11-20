@@ -58,7 +58,7 @@ There are many different approaches to searching indexed documents using the plu
 
 ### Integration tests
 
-** This is not currently working :( **
+**This is not currently working**
 
 **Important** The integration tests need a filled index to work. If you are using `elasticSearch.client.mode` as `'local'` (which is the default option), make sure you clear the index and run the app before using the `test-app` command from the project root folder:
 
